@@ -27,7 +27,7 @@ export const Todolist = ({title, tasks}:ListPropsType) => {
                 {!tasks.length
                 ? <div>EMPTY</div>
                 :tasks.map((task) =>{
-                    debugger
+        
                 return (
                 <li key={task.id}><input type="checkbox" checked={task.isDone} /> <span>{task.title}</span></li>  )
                 })
