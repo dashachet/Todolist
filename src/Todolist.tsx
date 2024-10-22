@@ -29,7 +29,10 @@ export const Todolist = ({title, tasks}:ListPropsType) => {
                 :tasks.map((task) =>{
         
                 return (
-                <li key={task.id}><input type="checkbox" checked={task.isDone} /> <span>{task.title}</span></li>  )
+                <li key={task.id}>
+                    <button>X</button>
+                    <input type="checkbox" checked={task.isDone} /> 
+                    <span>{task.title}</span></li>  )
                 })
                 
             
