@@ -30,7 +30,7 @@ export const Todolist = ({title, tasks}:ListPropsType) => {
         
                 return (
                 <li key={task.id}>
-                    <button>X</button>
+                    <button onClick={()=>{}}>X</button>
                     <input type="checkbox" checked={task.isDone} /> 
                     <span>{task.title}</span></li>  )
                 })
