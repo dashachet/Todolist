@@ -1,0 +1,28 @@
+.App {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.App > div {
+  margin-right: 50px;
+}
+
+* {
+
+}
+
+button {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  text-decoration: none;
+  font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 3px;
+  color: #E8EFF1;
+  text-shadow: -2px -1px #F17555;
+  background: #1E1958;
+  transition: .3s;
+}
