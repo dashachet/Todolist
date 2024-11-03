@@ -2,9 +2,10 @@ import React  from "react";
 import { Button } from "./Button";
 
 type ListPropsType= {
-    title: string
-    tasks: Task[] // Array<Task>
-
+    title: string,
+    tasks: Task[],  // Array<Task>
+    removeTask: (taskId: number) => void,
+    filteredTasks: ()=> void;
 }
 
 export type Task = {  // экспорт для проверки типизации
@@ -27,10 +28,9 @@ export const Todolist = ({title, tasks}:ListPropsType) => {
                 {!tasks.length
                 ? <div>EMPTY</div>
                 :tasks.map((task) =>{
-        
                 return (
                 <li key={task.id}>
-                    <button onClick={()=>{}}>X</button>
+                    <button onClick={()=> removeTask(taskId)}>X</button>
                     <input type="checkbox" checked={task.isDone} /> 
                     <span>{task.title}</span></li>  )
                 })
@@ -42,7 +42,7 @@ export const Todolist = ({title, tasks}:ListPropsType) => {
                 <Button title={"All"}/>
                 <Button title={"Active"}/>
                 <Button title={"Completed"}/>
-                <p>Приветп</p>
+            
             </div>
         </div>
     )

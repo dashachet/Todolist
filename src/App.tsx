@@ -1,27 +1,35 @@
-
-import React, {MouseEvent} from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import { Button } from './Button';
-import { Buttonn } from './components/Button';
-
+import { Task, Todolist } from './Todolist';
 
 function App() {
+    let [tasks, setTasks]: Array<Task> = useState ( [
+        {id: 1, title: 'HTML&CSS', isDone: true},
+        { id: 2, title: 'JS', isDone: true },
+        { id: 3, title: 'ReactJS', isDone: false },
+        { id: 4, title: 'Redux', isDone: false },
+        { id: 5, title: 'Typescript', isDone: false },
+        { id: 6, title: 'RTK query', isDone: false },
+    ] )
 
+        const removeTask = (taskId: number) => {
+            tasks=tasks.filter((el)=>el.Id!==taskId)
+            setTasks
+        // console.log('Hello');
+    }
 
-    const Button1Foo = (subscriber: string, age: number) =>
-    {
-        console.log(subscriber);
+    const filteredTasks () => {
+        console.log('1111')
 
     }
-    const Button2Foo = () => {
-        console.log('Im ivan');
+
     }
     return (
+        
         <div className="App">
-            <Buttonn  name={"My first youtube chanel"} callBack={()=>Button1Foo('Vasya', 21)}/>
-            <Buttonn name={"My second youtube chanel"} callBack={Button2Foo}/>
+            <Todolist title="What to learn" tasks={tasks} removeTask={removeTask} filteredTasks={filteredTasks}>
         </div>
     );
 }
 
-export default App; 
+export default App;
