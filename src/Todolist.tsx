@@ -24,7 +24,7 @@ export const Todolist = ({title, tasks, removeTask}:ListPropsType) => {
 
     const filteredTasks= (filterValue: FilterTypes) => {setValueForFilter(filterValue)}
 
-    const TaskFilter = () => {
+    const taskFilter = () => {
 
         let Filter = tasks
         if (valueForFilter === 'Active' ) Filter = tasks.filter((el) =>!el.isDone)
@@ -32,7 +32,7 @@ export const Todolist = ({title, tasks, removeTask}:ListPropsType) => {
         return Filter
     }
 
-    const Massive = TaskFilter()
+    const Massive = taskFilter()
 
 
 
@@ -51,7 +51,7 @@ export const Todolist = ({title, tasks, removeTask}:ListPropsType) => {
                 :Massive.map((task) =>{
                 return (
                 <li key={task.id}>
-                    <button onClick={() => removeTask(task.id)}>X</button>
+                    <Button title={'X'} onClick={() => removeTask(task.id)}/>
                     <input type="checkbox" checked={task.isDone} /> 
                     <span>{task.title}</span></li>  )
                 })
@@ -60,13 +60,9 @@ export const Todolist = ({title, tasks, removeTask}:ListPropsType) => {
             }
             </ul>
             <div>
-                <button onClick={() => filteredTasks('All')}>All</button>
-                <button onClick={() => filteredTasks('Completed')}>Completed</button>
-                <button onClick={() => filteredTasks('Active')}>Active</button>
-                {/*<Button title={"All"}/>*/}
-                {/*<Button title={"Active"}/>*/}
-                {/*<Button title={"Completed"}/>*/}
-
+                <Button title={'All'} onClick={() => filteredTasks('All')}/>
+                <Button title={'Completed'} onClick={() => filteredTasks('Completed')}/>
+                <Button title={'Active'} onClick={() => filteredTasks('Active')}/>
             </div>
         </div>
     )
